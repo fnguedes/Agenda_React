@@ -24,16 +24,24 @@ function App() {
 	const [filterContacts, setFilterContacts] = useState("");
 
 	function handleNewContact(contact: AppContactProps) {
-		setContacts([...contacts, contact]);
-		setDataContacts([...contacts, contact]);
+		const sortContacts = [...contacts, contact].sort((a, b) =>
+			a.name.localeCompare(b.name),
+		);
+
+		setContacts(sortContacts);
+		setDataContacts(sortContacts);
 	}
 
 	function handleEditContact({ editContact, keyPhone }: EditContactProps) {
 		const newListContacts = contacts.filter(
 			(contact: AppContactProps) => keyPhone !== contact.phone,
 		);
-		setContacts([...newListContacts, editContact]);
-		setDataContacts([...newListContacts, editContact]);
+
+		const sortContacts = [...newListContacts, editContact].sort((a, b) =>
+			a.name.localeCompare(b.name),
+		);
+		setContacts(sortContacts);
+		setDataContacts(sortContacts);
 	}
 
 	function handleDeleteContact(keyPhone: string) {
