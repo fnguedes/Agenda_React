@@ -33,7 +33,7 @@ Este projeto é uma aplicação de agenda de contatos desenvolvida com **React**
    ```
 4. Clone o repositório:
    ```bash
-   npm start
+   npm run dev
    ```
 
 ***
